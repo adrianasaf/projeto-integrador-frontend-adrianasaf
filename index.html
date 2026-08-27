@@ -6,35 +6,83 @@
     <title>PIANO</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<!-- BODY ABAIXO PAPAI-->
 <body>
-    
-    <h1 justify-content="center" style="color: #fcfcfc; font-family: Arial;">PIANO</h1>
-    <p style="color: #fcfcfc; font-family: Arial;">Bem-vindo ao nosso site sobre piano!</p>
-    <div class="galeria">
-        <img src="assets/images/PIANO1.jpg" alt="Teclas brancas e pretas de piano em close-up" style="width: 600px; height: 500px;">
-        <img src="assets/images/PIANO2.jpg" alt="Piano em posição de toque" style="width: 600px; height: 500px;">
-        <img src="assets/images/PIANO3.jpg" alt="Piano de cauda" style="width: 600px; height: 500px;">
-    </div>
+    <header>
+        <h1 style="color: #fcfcfc; font-family: Arial;">PIANO</h1>
+        <p style="color: #fcfcfc; font-family: Arial;">Bem-vindo ao nosso site sobre piano!</p>
+    </header>
 
-    <ul>
-  <li>Piano acústico de cauda</li>
-  <li>Piano acústico vertical</li>
-  <li>Pianista</li>
-    </ul>
-<table>
-  <tr>
-    <th>Tipo de Piano</th>
-    <th>Descrição</th>
-  </tr>
-  <tr>
-    <td>Piano acústico de cauda</td>
-    <td>Piano de tamanho grande, ideal para concertos e salas de recital.</td>
-  </tr>
-</table>
-<a href="https://pt.wikipedia.org/wiki/Piano" target="_blank" rel="noopener noreferrer">Saiba mais sobre o piano</a>
-    <style>
-    </style>
-        
+    <main>
+
+        <section>
+            <h2>Galeria</h2>
+            <div class="galeria">
+                <img src="assets/images/PIANO1.jpg" alt="Teclas brancas e pretas de piano em close-up" style="width: 600px; height: 500px;">
+                <img src="assets/images/PIANO2.jpg" alt="Piano em posição de toque" style="width: 600px; height: 500px;">
+                <img src="assets/images/PIANO3.jpg" alt="Piano de cauda" style="width: 600px; height: 500px;">
+            </div>
+        </section>
+
+        <section>
+            <h2>Tipos de Piano</h2>
+            <ul>
+                <li>Piano acústico de cauda</li>
+                <li>Piano acústico vertical</li>
+                <li>Pianista</li>
+            </ul>
+            <table>
+                <tr>
+                    <th>Tipo de Piano</th>
+                    <th>Descrição</th>
+                </tr>
+                <tr>
+                    <td>Piano acústico de cauda</td>
+                    <td>Piano de tamanho grande, ideal para concertos e salas de recital.</td>
+                </tr>
+            </table>
+            <a href="https://pt.wikipedia.org/wiki/Piano" target="_blank" rel="noopener noreferrer">Saiba mais sobre o piano</a>
+        </section>
+
+        <section>
+            <h2>Sugerir uma Peça</h2>
+            <form>
+                <fieldset>
+                    <legend>Seus dados</legend>
+
+                    <label for="nome">Nome completo</label><br>
+                    <input type="text" id="nome" name="nome" required><br>
+
+                    <label for="email">Email</label><br>
+                    <input type="email" id="email" name="email" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Sugestão</legend>
+
+                    <label for="peca">Peça sugerida</label><br>
+                    <input type="text" id="peca" name="peca" placeholder="Ex: Clair de Lune"><br>
+
+                    <label for="nivel">Nível</label><br>
+                    <select id="nivel" name="nivel">
+                        <option value="">Selecione...</option>
+                        <option value="iniciante">Iniciante</option>
+                        <option value="intermediario">Intermediário</option>
+                        <option value="avancado">Avançado</option>
+                    </select><br>
+
+                    <label for="mensagem">Mensagem</label><br>
+                    <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+                </fieldset>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Adrian Asaf &copy; Projeto Integrador — 2026</p>
+    </footer>
 
 </body>
+</html>
