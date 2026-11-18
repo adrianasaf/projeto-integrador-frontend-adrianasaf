@@ -9,6 +9,17 @@
 </head>
 <body>
     <header>
+        <svg class="logo-svg" viewBox="0 0 120 60" width="120" height="60" role="img" aria-labelledby="titulo-logo">
+            <title id="titulo-logo">Logotipo Piano Comparativo: teclado de piano estilizado</title>
+            <rect x="2" y="2" width="116" height="56" rx="8" fill="#f5f1e8" stroke="#c9a227" stroke-width="3"/>
+            <line x1="25" y1="4" x2="25" y2="56" stroke="#1a1a1d" stroke-width="2"/>
+            <line x1="48" y1="4" x2="48" y2="56" stroke="#1a1a1d" stroke-width="2"/>
+            <line x1="71" y1="4" x2="71" y2="56" stroke="#1a1a1d" stroke-width="2"/>
+            <line x1="94" y1="4" x2="94" y2="56" stroke="#1a1a1d" stroke-width="2"/>
+            <rect x="18" y="4" width="14" height="32" rx="2" fill="#1a1a1d"/>
+            <rect x="41" y="4" width="14" height="32" rx="2" fill="#1a1a1d"/>
+            <rect x="87" y="4" width="14" height="32" rx="2" fill="#1a1a1d"/>
+        </svg>
         <h1 style="color: #fcfcfc; font-family: Arial;">Piano | Comparativo</h1>
         <p style="color: #fcfcfc; font-family: Arial;">Conheça e compare os principais tipos de piano antes de escolher o seu.</p>
     </header>
@@ -82,6 +93,14 @@
                 </tbody>
             </table>
             <p><a href="https://pt.wikipedia.org/wiki/Piano" target="_blank" rel="noopener noreferrer">Saiba mais sobre o piano na Wikipédia</a></p>
+        </section>
+
+        <section id="precos">
+            <h2>Faixas de preço</h2>
+            <p>Preço de referência aproximado de um modelo de entrada de cada tipo, em milhares de reais.</p>
+            <canvas id="grafico-precos" width="640" height="320" role="img" aria-label="Gráfico de barras com o preço de referência por tipo de piano: digital 7 mil reais, vertical 35 mil, híbrido 40 mil e meia cauda 150 mil.">
+                <p>Preço de referência aproximado: piano digital R$ 7 mil, vertical R$ 35 mil, híbrido R$ 40 mil e meia cauda R$ 150 mil.</p>
+            </canvas>
         </section>
 
         <section id="galeria">
@@ -175,5 +194,7 @@
     <footer>
         <p>Adrian Asaf &copy; 2026 · Projeto Integrador de Desenvolvimento Front-End para Web</p>
     </footer>
+
+    <script src="js/canvas.js" defer></script>
 </body>
 </html>
