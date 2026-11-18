@@ -23,7 +23,7 @@ if (canvasPrecos) {
 
     function desenharGrafico() {
         ctxPrecos.clearRect(0, 0, larguraCanvas, alturaCanvas);
-        ctxPrecos.strokeStyle = '#2e2e33';
+        ctxPrecos.strokeStyle = '#444444';
         ctxPrecos.lineWidth = 2;
         ctxPrecos.beginPath();
         ctxPrecos.moveTo(0, alturaCanvas - margemBase);
@@ -38,13 +38,13 @@ if (canvasPrecos) {
             const alturaAtual = alturaFinal * progresso;
             const y = alturaCanvas - margemBase - alturaAtual;
 
-            ctxPrecos.fillStyle = '#c9a227';
+            ctxPrecos.fillStyle = '#4ea1ff';
             ctxPrecos.fillRect(x, y, larguraBarra, alturaAtual);
 
-            ctxPrecos.fillStyle = '#f5f1e8';
+            ctxPrecos.fillStyle = '#ffffff';
             ctxPrecos.fillText(`R$ ${item.valor} mil`, x + larguraBarra / 2, y - 8);
 
-            ctxPrecos.fillStyle = '#b9b3a6';
+            ctxPrecos.fillStyle = '#cccccc';
             ctxPrecos.fillText(item.rotulo, x + larguraBarra / 2, alturaCanvas - 14);
         });
     }
