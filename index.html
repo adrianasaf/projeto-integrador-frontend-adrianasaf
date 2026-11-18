@@ -17,9 +17,23 @@
         <section id="sobre">
             <h2>O que é um piano?</h2>
             <p>O piano é um instrumento musical de cordas percutidas, inventado no início do século XVIII. Ele possui um teclado com teclas brancas e pretas que, ao serem pressionadas, acionam martelos que batem nas cordas. É usado em diversos estilos, da música clássica ao jazz e ao pop.</p>
-            <video controls width="480">
-                <source src="assets/video/pianista-tocando.mp4" type="video/mp4">
-            </video>
+            <div class="midias">
+                <figure class="midia">
+                    <video controls preload="metadata" poster="assets/images/poster-video.jpg" width="960" height="540">
+                        <source src="assets/video/pianista-tocando.mp4" type="video/mp4">
+                        <p>Seu navegador não reproduz vídeo. <a href="assets/video/pianista-tocando.mp4">Baixe o vídeo</a>.</p>
+                    </video>
+                    <figcaption>Pianista tocando em um piano público.</figcaption>
+                </figure>
+                <figure class="midia">
+                    <audio controls preload="none">
+                        <source src="assets/audio/trecho-piano.ogg" type="audio/ogg">
+                        <source src="assets/audio/trecho-piano.mp3" type="audio/mpeg">
+                        <p>Seu navegador não reproduz áudio. <a href="assets/audio/trecho-piano.mp3">Baixe o áudio</a>.</p>
+                    </audio>
+                    <figcaption>Ouça 30 segundos do som de um piano acústico vertical.</figcaption>
+                </figure>
+            </div>
         </section>
 
         <section id="tipos">
@@ -73,10 +87,34 @@
         <section id="galeria">
             <h2>Galeria</h2>
             <div class="galeria">
-                <img src="assets/images/piano-teclas.jpg" alt="Close das teclas brancas e pretas de um piano" width="400">
-                <img src="assets/images/piano-sepia.jpg" alt="Teclado de piano em tom sépia, visto de lado" width="400">
-                <img src="assets/images/piano-maos.jpg" alt="Mãos de um pianista tocando, em preto e branco" width="400">
+                <figure class="galeria-item">
+                    <picture>
+                        <source srcset="assets/images/piano-teclas.webp" type="image/webp">
+                        <img src="assets/images/piano-teclas.jpg" alt="Close das teclas brancas e pretas de um piano" width="1600" height="1064" loading="lazy">
+                    </picture>
+                    <figcaption>Teclas em close</figcaption>
+                </figure>
+                <figure class="galeria-item">
+                    <picture>
+                        <source srcset="assets/images/piano-sepia.webp" type="image/webp">
+                        <img src="assets/images/piano-sepia.jpg" alt="Teclado de piano em tom sépia, visto de lado" width="1600" height="1067" loading="lazy">
+                    </picture>
+                    <figcaption>O teclado visto de lado</figcaption>
+                </figure>
+                <figure class="galeria-item">
+                    <picture>
+                        <source srcset="assets/images/piano-maos.webp" type="image/webp">
+                        <img src="assets/images/piano-maos.jpg" alt="Mãos de um pianista tocando, em preto e branco" width="1600" height="1067" loading="lazy">
+                    </picture>
+                    <figcaption>Mãos ao piano</figcaption>
+                </figure>
             </div>
+        </section>
+
+        <section id="onde-ouvir">
+            <h2>Onde ouvir piano ao vivo</h2>
+            <p>O Teatro Santa Roza, em João Pessoa, recebe recitais e concertos ao longo do ano.</p>
+            <iframe class="mapa" title="Mapa do Teatro Santa Roza, em João Pessoa" src="https://www.google.com/maps?q=Teatro+Santa+Roza,+Jo%C3%A3o+Pessoa&amp;output=embed" width="600" height="300" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
 
         <section id="sugerir">
