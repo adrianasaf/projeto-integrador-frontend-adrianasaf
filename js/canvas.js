@@ -29,7 +29,7 @@ if (canvasPrecos) {
         ctxPrecos.moveTo(0, alturaCanvas - margemBase);
         ctxPrecos.lineTo(larguraCanvas, alturaCanvas - margemBase);
         ctxPrecos.stroke();
-        ctxPrecos.font = '16px system-ui, Arial, sans-serif';
+        ctxPrecos.font = '16px Arial, sans-serif';
         ctxPrecos.textAlign = 'center';
 
         dadosPrecos.forEach((item, indice) => {
