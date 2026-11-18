@@ -81,36 +81,55 @@
 
         <section id="sugerir">
             <h2>Sugerir uma peça</h2>
-            <form>
+            <form class="formulario">
                 <fieldset>
                     <legend>Seus dados</legend>
-
-                    <label for="nome">Nome completo</label><br>
-                    <input type="text" id="nome" name="nome" required><br>
-
-                    <label for="email">Email</label><br>
-                    <input type="email" id="email" name="email" required>
+                    <div class="campo">
+                        <label for="nome">Nome completo</label>
+                        <input type="text" id="nome" name="nome" autocomplete="name" required minlength="3">
+                    </div>
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </div>
+                    <div class="campo">
+                        <label for="anos-estudo">Há quantos anos você estuda piano?</label>
+                        <input type="number" id="anos-estudo" name="anos-estudo" min="0" max="80" step="1">
+                    </div>
                 </fieldset>
 
                 <fieldset>
                     <legend>Sugestão</legend>
-
-                    <label for="peca">Peça sugerida</label><br>
-                    <input type="text" id="peca" name="peca" placeholder="Ex: Clair de Lune"><br>
-
-                    <label for="nivel">Nível</label><br>
-                    <select id="nivel" name="nivel">
-                        <option value="">Selecione...</option>
-                        <option value="iniciante">Iniciante</option>
-                        <option value="intermediario">Intermediário</option>
-                        <option value="avancado">Avançado</option>
-                    </select><br>
-
-                    <label for="mensagem">Mensagem</label><br>
-                    <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+                    <div class="campo">
+                        <label for="peca">Peça sugerida</label>
+                        <input type="text" id="peca" name="peca" placeholder="Ex: Clair de Lune" required>
+                    </div>
+                    <div class="campo">
+                        <label for="nivel">Nível da peça</label>
+                        <select id="nivel" name="nivel" required>
+                            <option value="">Selecione...</option>
+                            <option value="iniciante">Iniciante</option>
+                            <option value="intermediario">Intermediário</option>
+                            <option value="avancado">Avançado</option>
+                            <option value="virtuoso">Virtuoso</option>
+                        </select>
+                    </div>
+                    <fieldset class="grupo-radio">
+                        <legend>Em que piano você toca?</legend>
+                        <input type="radio" id="toca-acustico" name="instrumento" value="acustico">
+                        <label for="toca-acustico">Acústico</label>
+                        <input type="radio" id="toca-digital" name="instrumento" value="digital">
+                        <label for="toca-digital">Digital</label>
+                        <input type="radio" id="toca-nenhum" name="instrumento" value="nenhum">
+                        <label for="toca-nenhum">Ainda não toco</label>
+                    </fieldset>
+                    <div class="campo">
+                        <label for="mensagem">Por que essa peça?</label>
+                        <textarea id="mensagem" name="mensagem" rows="4" maxlength="500"></textarea>
+                    </div>
                 </fieldset>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" class="botao">Enviar sugestão</button>
             </form>
         </section>
     </main>
