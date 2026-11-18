@@ -25,9 +25,22 @@
                 </svg>
                 <span>Piano | Comparativo</span>
             </a>
+            <button class="menu-hamburguer" type="button" aria-label="Abrir menu" aria-expanded="false">
+                <span class="barra"></span>
+                <span class="barra"></span>
+                <span class="barra"></span>
+            </button>
             <ul class="menu" id="menu-principal">
                 <li><a href="#inicio" class="ativo">Início</a></li>
-                <li><a href="#tipos">Tipos</a></li>
+                <li class="tem-dropdown">
+                    <a href="#tipos">Tipos</a>
+                    <ul class="dropdown">
+                        <li><a href="#tipos">Acústicos</a></li>
+                        <li><a href="#tipos">Digitais</a></li>
+                        <li><a href="#tipos">Híbridos</a></li>
+                        <li><a href="#precos">Faixas de preço</a></li>
+                    </ul>
+                </li>
                 <li><a href="#galeria">Galeria</a></li>
                 <li><a href="#sugerir">Sugerir</a></li>
             </ul>

@@ -350,3 +350,70 @@ textarea:focus-visible {
     max-width: 40rem;
     margin: 0 auto var(--espaco);
 }
+
+#cabecalho-principal {
+    /* sticky no header e nao na navbar pq na navbar ela soltava quando o header acabava
+       z-index aqui pq eh o header que cria o contexto do dropdown */
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+.tem-dropdown {
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    min-width: 180px;
+    padding: 0.5rem 0;
+    list-style: none;
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+}
+
+.dropdown a {
+    padding: 0.5rem var(--espaco);
+    border-bottom: 0;
+}
+
+.tem-dropdown:hover .dropdown {
+    display: block;
+}
+
+.menu-hamburguer {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-hamburguer .barra {
+    width: 24px;
+    height: 3px;
+    background-color: var(--cor-texto);
+}
+
+@media (max-width: 640px) {
+    .navbar {
+        position: relative;
+    }
+
+    .menu-hamburguer {
+        display: flex;
+    }
+
+    .menu {
+        display: none;
+    }
+}
