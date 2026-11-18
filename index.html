@@ -1,57 +1,86 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIANO | COMPARATIVO</title>
+    <meta name="description" content="Piano | Comparativo: conheça e compare os principais tipos de piano, suas características e faixas de preço.">
+    <title>Piano | Comparativo</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1 style="color: #fcfcfc; font-family: Arial;">PIANO | COMPARATIVO</h1>
-        <p style="color: #fcfcfc; font-family: Arial;">Bem-vindo ao nosso site sobre piano!</p>
+        <h1 style="color: #fcfcfc; font-family: Arial;">Piano | Comparativo</h1>
+        <p style="color: #fcfcfc; font-family: Arial;">Conheça e compare os principais tipos de piano antes de escolher o seu.</p>
     </header>
 
     <main>
-        <title style="color: #fcfcfc; font-family: Arial;">O que é um Piano?:</p>
-        <p style="color: #fcfcfc; font-family: Arial;">O piano é um instrumento musical de cordas percutidas, inventado no início do século XVIII. Ele possui um teclado com teclas brancas e pretas, que são pressionadas para produzir sons. O piano é amplamente utilizado em diversos estilos musicais, desde música clássica até jazz e pop.</p>
-        <div>
-            <video controls width="25%">
-                <source src="pianista tocando.mp4" type="video/mp4" autoplay muted loop>
+        <section id="sobre">
+            <h2>O que é um piano?</h2>
+            <p>O piano é um instrumento musical de cordas percutidas, inventado no início do século XVIII. Ele possui um teclado com teclas brancas e pretas que, ao serem pressionadas, acionam martelos que batem nas cordas. É usado em diversos estilos, da música clássica ao jazz e ao pop.</p>
+            <video controls width="480">
+                <source src="assets/video/pianista-tocando.mp4" type="video/mp4">
             </video>
-        </div>
+        </section>
 
-        <section>
+        <section id="tipos">
+            <h2>Tipos de piano</h2>
+            <ul class="lista-tipos">
+                <li>Piano acústico de cauda</li>
+                <li>Piano acústico vertical</li>
+                <li>Piano digital</li>
+                <li>Piano híbrido</li>
+            </ul>
+            <table class="tabela-comparativa">
+                <caption>Comparativo entre os principais tipos de piano</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Como produz o som</th>
+                        <th scope="col">Espaço</th>
+                        <th scope="col">Indicado para</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>De cauda</td>
+                        <td>Martelos em cordas horizontais</td>
+                        <td>Grande</td>
+                        <td>Concertos, estúdios e salas de recital</td>
+                    </tr>
+                    <tr>
+                        <td>Vertical</td>
+                        <td>Martelos em cordas verticais</td>
+                        <td>Médio (encostado na parede)</td>
+                        <td>Estudo em casa e escolas de música</td>
+                    </tr>
+                    <tr>
+                        <td>Digital</td>
+                        <td>Amostras gravadas de pianos reais</td>
+                        <td>Pequeno</td>
+                        <td>Iniciantes e estudo silencioso com fones</td>
+                    </tr>
+                    <tr>
+                        <td>Híbrido</td>
+                        <td>Mecânica acústica com som digital</td>
+                        <td>Médio</td>
+                        <td>Toque de acústico com opção de estudo silencioso</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><a href="https://pt.wikipedia.org/wiki/Piano" target="_blank" rel="noopener noreferrer">Saiba mais sobre o piano na Wikipédia</a></p>
+        </section>
+
+        <section id="galeria">
             <h2>Galeria</h2>
             <div class="galeria">
-                <img src="assets/images/PIANO1.jpg" alt="Teclas brancas e pretas de piano em close-up" style="width: 600px; height: 500px;">
-                <img src="assets/images/PIANO2.jpg" alt="Piano em posição de toque" style="width: 600px; height: 500px;">
-                <img src="assets/images/PIANO3.jpg" alt="Piano de cauda" style="width: 600px; height: 500px;">
+                <img src="assets/images/piano-teclas.jpg" alt="Close das teclas brancas e pretas de um piano" width="400">
+                <img src="assets/images/piano-sepia.jpg" alt="Teclado de piano em tom sépia, visto de lado" width="400">
+                <img src="assets/images/piano-maos.jpg" alt="Mãos de um pianista tocando, em preto e branco" width="400">
             </div>
         </section>
 
-        <section>
-            <h2>Tipos de Piano</h2>
-            <ul>
-                <li>Piano acústico de cauda</li>
-                <li>Piano acústico vertical</li>
-                <li>Pianista</li>
-            </ul>
-            <table>
-                <tr>
-                    <th>Tipo de Piano</th>
-                    <th>Descrição</th>
-                </tr>
-                <tr>
-                    <td>Piano acústico de cauda</td>
-                    <td>Piano de tamanho grande, ideal para concertos e salas de recital.</td>
-                </tr>
-            </table>
-            <a href="https://pt.wikipedia.org/wiki/Piano" target="_blank" rel="noopener noreferrer">Saiba mais sobre o piano</a>
-        </section>
-
-        <section>
-            <h2>Sugerir uma Peça</h2>
+        <section id="sugerir">
+            <h2>Sugerir uma peça</h2>
             <form>
                 <fieldset>
                     <legend>Seus dados</legend>
@@ -84,12 +113,10 @@
                 <button type="submit">Enviar</button>
             </form>
         </section>
-
     </main>
 
     <footer>
-        <p>Adrian Asaf &copy; Projeto Integrador — 2026</p>
+        <p>Adrian Asaf &copy; 2026 · Projeto Integrador de Desenvolvimento Front-End para Web</p>
     </footer>
-
 </body>
 </html>
