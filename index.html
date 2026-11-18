@@ -10,22 +10,37 @@
 </head>
 <body>
     <header id="cabecalho-principal">
-        <svg class="logo-svg" viewBox="0 0 120 60" width="120" height="60" role="img" aria-labelledby="titulo-logo">
-            <title id="titulo-logo">Logotipo Piano Comparativo: teclado de piano estilizado</title>
-            <rect x="2" y="2" width="116" height="56" rx="8" fill="#f5f1e8" stroke="#c9a227" stroke-width="3"/>
-            <line x1="25" y1="4" x2="25" y2="56" stroke="#1a1a1d" stroke-width="2"/>
-            <line x1="48" y1="4" x2="48" y2="56" stroke="#1a1a1d" stroke-width="2"/>
-            <line x1="71" y1="4" x2="71" y2="56" stroke="#1a1a1d" stroke-width="2"/>
-            <line x1="94" y1="4" x2="94" y2="56" stroke="#1a1a1d" stroke-width="2"/>
-            <rect x="18" y="4" width="14" height="32" rx="2" fill="#1a1a1d"/>
-            <rect x="41" y="4" width="14" height="32" rx="2" fill="#1a1a1d"/>
-            <rect x="87" y="4" width="14" height="32" rx="2" fill="#1a1a1d"/>
-        </svg>
-        <h1>Piano | Comparativo</h1>
-        <p class="destaque">Conheça e compare os principais tipos de piano antes de escolher o seu.</p>
+        <nav class="navbar" aria-label="Navegação principal">
+            <a href="#inicio" class="logo">
+                <svg class="logo-svg" viewBox="0 0 120 60" width="60" height="30" role="img" aria-labelledby="titulo-logo">
+                    <title id="titulo-logo">Logotipo Piano Comparativo: teclado de piano estilizado</title>
+                    <rect x="2" y="2" width="116" height="56" rx="8" fill="#f5f1e8" stroke="#c9a227" stroke-width="3"/>
+                    <line x1="25" y1="4" x2="25" y2="56" stroke="#1a1a1d" stroke-width="2"/>
+                    <line x1="48" y1="4" x2="48" y2="56" stroke="#1a1a1d" stroke-width="2"/>
+                    <line x1="71" y1="4" x2="71" y2="56" stroke="#1a1a1d" stroke-width="2"/>
+                    <line x1="94" y1="4" x2="94" y2="56" stroke="#1a1a1d" stroke-width="2"/>
+                    <rect x="18" y="4" width="14" height="32" rx="2" fill="#1a1a1d"/>
+                    <rect x="41" y="4" width="14" height="32" rx="2" fill="#1a1a1d"/>
+                    <rect x="87" y="4" width="14" height="32" rx="2" fill="#1a1a1d"/>
+                </svg>
+                <span>Piano | Comparativo</span>
+            </a>
+            <ul class="menu" id="menu-principal">
+                <li><a href="#inicio" class="ativo">Início</a></li>
+                <li><a href="#tipos">Tipos</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#sugerir">Sugerir</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
+        <section id="inicio" class="hero">
+            <h1>Piano | Comparativo</h1>
+            <p class="destaque">Conheça e compare os principais tipos de piano antes de escolher o seu.</p>
+            <a href="#tipos" class="botao">Comparar tipos</a>
+        </section>
+
         <section id="sobre">
             <h2>O que é um piano?</h2>
             <p>O piano é um instrumento musical de cordas percutidas, inventado no início do século XVIII. Ele possui um teclado com teclas brancas e pretas que, ao serem pressionadas, acionam martelos que batem nas cordas. É usado em diversos estilos, da música clássica ao jazz e ao pop.</p>
@@ -56,7 +71,7 @@
                 <li>Piano digital</li>
                 <li>Piano híbrido</li>
             </ul>
-            <div class="tabela-rolagem" role="region" aria-label="Tabela comparativa (role para o lado no celular)" tabindex="0">
+            <div class="tabela-rolagem">
             <table class="tabela-comparativa">
                 <caption>Comparativo entre os principais tipos de piano</caption>
                 <thead>
@@ -146,15 +161,15 @@
                     <legend>Seus dados</legend>
                     <div class="campo">
                         <label for="nome">Nome completo</label>
-                        <input type="text" id="nome" name="nome" autocomplete="name" required minlength="3">
+                        <input type="text" id="nome" name="nome" required>
                     </div>
                     <div class="campo">
                         <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" autocomplete="email" required>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="campo">
                         <label for="anos-estudo">Há quantos anos você estuda piano?</label>
-                        <input type="number" id="anos-estudo" name="anos-estudo" min="0" max="80" step="1">
+                        <input type="number" id="anos-estudo" name="anos-estudo" min="0" max="80">
                     </div>
                 </fieldset>
 
@@ -185,7 +200,7 @@
                     </fieldset>
                     <div class="campo">
                         <label for="mensagem">Por que essa peça?</label>
-                        <textarea id="mensagem" name="mensagem" rows="4" maxlength="500"></textarea>
+                        <textarea id="mensagem" name="mensagem" rows="4"></textarea>
                     </div>
                 </fieldset>
 
