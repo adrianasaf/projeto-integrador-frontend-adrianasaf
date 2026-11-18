@@ -1,18 +1,19 @@
-    .galeria {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    body {
-        background-color: #000000;
-        font-family: Arial, sans-serif;
-        text-align: center;
-    }   
-
 body {
     background-color: #000000;
+    color: #fcfcfc;
     font-family: Arial, sans-serif;
     text-align: center;
-    color: #fcfcfc;
+}
+
+.galeria {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
 }
