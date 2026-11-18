@@ -277,6 +277,24 @@ footer {
     .menu {
         display: none;
     }
+
+    .menu.aberto {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: var(--espaco);
+        background-color: var(--cor-fundo);
+        border-bottom: 1px solid var(--cor-cinza);
+    }
+
+    .menu.aberto .dropdown {
+        position: static;
+        display: block;
+        border: 0;
+    }
 }
 
 .grade-cards {
@@ -310,4 +328,30 @@ footer {
 
 .faixa-premium {
     border-left: 4px solid #d93636;
+}
+
+.filtros {
+    margin-bottom: var(--espaco);
+}
+
+.botao-favoritar {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--cor-texto);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    cursor: pointer;
+}
+
+.botao[aria-pressed="true"],
+.botao-favoritar[aria-pressed="true"] {
+    background-color: var(--cor-texto);
+    color: var(--cor-fundo);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--cor-link);
+    outline-offset: 2px;
 }

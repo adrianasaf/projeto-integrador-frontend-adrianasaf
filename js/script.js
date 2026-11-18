@@ -57,6 +57,24 @@ function calcularPrecoMedio(pianos) {
     return soma / pianos.length;
 }
 
+function filtrarPianos(pianos, filtro) {
+    return pianos.filter((piano) => {
+        const passaBusca = piano.nome.toLowerCase().includes(filtro.busca);
+        const passaCategoria = filtro.categoria === 'todas' || piano.categoria === filtro.categoria;
+        const passaFavorito = !filtro.soFavoritos || piano.favorito === true;
+        return passaBusca && passaCategoria && passaFavorito;
+    });
+}
+
+function calcularResumo(visiveis, todos) {
+    return {
+        exibidos: visiveis.length,
+        total: todos.length,
+        favoritos: todos.filter((piano) => piano.favorito === true).length,
+        precoMedio: calcularPrecoMedio(visiveis),
+    };
+}
+
 function criarCardPiano(piano) {
     const item = document.createElement('li');
     item.classList.add('card', 'card-piano', 'faixa-' + piano.faixa);
@@ -82,24 +100,131 @@ function criarCardPiano(piano) {
 
     item.append(etiqueta, titulo, categoria, preco, parcela);
 
+    const botaoFavoritar = document.createElement('button');
+    botaoFavoritar.type = 'button';
+    botaoFavoritar.classList.add('botao-favoritar');
+    botaoFavoritar.dataset.id = piano.id;
+    botaoFavoritar.setAttribute('aria-pressed', String(piano.favorito === true));
+    botaoFavoritar.textContent = piano.favorito ? '★ Favorito' : '☆ Favoritar';
+    item.append(botaoFavoritar);
+
     return item;
 }
 
+const filtroAtual = {
+    busca: '',
+    categoria: 'todas',
+    soFavoritos: false,
+};
+
 const listaPianos = document.querySelector('#lista-pianos');
 const resumoCatalogo = document.querySelector('#resumo-catalogo');
+const campoBusca = document.querySelector('#busca');
+const seletorCategoria = document.querySelector('#filtro-categoria');
+const botaoFavoritos = document.querySelector('#botao-favoritos');
+const formNovoPiano = document.querySelector('#form-novo-piano');
+const botaoMenu = document.querySelector('.menu-hamburguer');
+const menuPrincipal = document.querySelector('#menu-principal');
 
-if (listaPianos === null || resumoCatalogo === null) {
-    console.log('Não achei a lista ou o resumo no HTML');
-} else {
-    const pianosProcessados = processarPianos(catalogoPianos);
-    const ordenados = [...pianosProcessados].sort((a, b) => a.preco - b.preco);
+let proximoId = catalogoPianos.length + 1;
 
-    for (const piano of ordenados) {
-        listaPianos.append(criarCardPiano(piano));
+function escreverResumo(resumo) {
+    resumoCatalogo.textContent = `Mostrando ${resumo.exibidos} de ${resumo.total} pianos, ${resumo.favoritos} favorito(s), preço médio de ${formatarPreco(resumo.precoMedio)}`;
+}
+
+function desenhar() {
+    const processados = processarPianos(catalogoPianos);
+    const visiveis = filtrarPianos(processados, filtroAtual);
+    const ordenados = [...visiveis].sort((a, b) => a.preco - b.preco);
+
+    listaPianos.replaceChildren(...ordenados.map(criarCardPiano));
+    escreverResumo(calcularResumo(visiveis, catalogoPianos));
+}
+
+function tratarCliqueNaLista(evento) {
+    const botao = evento.target.closest('.botao-favoritar');
+    if (botao === null) {
+        return;
     }
 
-    const acessiveis = pianosProcessados.filter((piano) => piano.faixa === 'acessivel');
-    const precoMedio = calcularPrecoMedio(pianosProcessados);
+    const id = Number(botao.dataset.id);
+    const piano = catalogoPianos.find((item) => item.id === id);
+    piano.favorito = !piano.favorito;
+    desenhar();
 
-    resumoCatalogo.textContent = `${pianosProcessados.length} pianos no catálogo, ${acessiveis.length} na faixa acessível, preço médio de ${formatarPreco(precoMedio)}`;
+    const botaoNovo = listaPianos.querySelector(`[data-id="${id}"]`);
+    if (botaoNovo !== null) {
+        botaoNovo.focus();
+    } else {
+        botaoFavoritos.focus();
+    }
 }
+
+function tratarBusca(evento) {
+    filtroAtual.busca = evento.target.value.trim().toLowerCase();
+    desenhar();
+}
+
+function tratarCategoria(evento) {
+    filtroAtual.categoria = evento.target.value;
+    desenhar();
+}
+
+function alternarFavoritos() {
+    filtroAtual.soFavoritos = !filtroAtual.soFavoritos;
+    botaoFavoritos.setAttribute('aria-pressed', String(filtroAtual.soFavoritos));
+    desenhar();
+}
+
+function tratarNovoPiano(evento) {
+    evento.preventDefault();
+
+    const nome = document.querySelector('#novo-nome').value.trim();
+    const preco = Number(document.querySelector('#novo-preco').value);
+    const categoria = document.querySelector('#novo-categoria').value;
+
+    if (nome === '' || Number.isNaN(preco) || preco <= 0 || categoria === '') {
+        return;
+    }
+
+    catalogoPianos.push({ id: proximoId, nome: nome, categoria: categoria, preco: preco, favorito: false });
+    proximoId++;
+
+    formNovoPiano.reset();
+    desenhar();
+}
+
+function alternarMenu() {
+    const aberto = botaoMenu.getAttribute('aria-expanded') === 'true';
+    botaoMenu.setAttribute('aria-expanded', String(!aberto));
+    menuPrincipal.classList.toggle('aberto', !aberto);
+}
+
+function fecharMenuComEsc(evento) {
+    if (evento.key === 'Escape' && botaoMenu.getAttribute('aria-expanded') === 'true') {
+        botaoMenu.setAttribute('aria-expanded', 'false');
+        menuPrincipal.classList.remove('aberto');
+        botaoMenu.focus();
+    }
+}
+
+function iniciarCatalogo() {
+    if (listaPianos === null || resumoCatalogo === null) {
+        console.log('Não achei a lista ou o resumo no HTML');
+        return;
+    }
+    listaPianos.addEventListener('click', tratarCliqueNaLista);
+    campoBusca.addEventListener('input', tratarBusca);
+    seletorCategoria.addEventListener('change', tratarCategoria);
+    botaoFavoritos.addEventListener('click', alternarFavoritos);
+    formNovoPiano.addEventListener('submit', tratarNovoPiano);
+    desenhar();
+}
+
+function iniciarMenu() {
+    botaoMenu.addEventListener('click', alternarMenu);
+    document.addEventListener('keydown', fecharMenuComEsc);
+}
+
+iniciarCatalogo();
+iniciarMenu();

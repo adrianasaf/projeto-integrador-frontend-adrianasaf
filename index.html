@@ -170,8 +170,48 @@
 
         <section id="catalogo">
             <h2>Catálogo de pianos</h2>
-            <p id="resumo-catalogo" class="resumo"></p>
+            <div class="filtros">
+                <div class="campo">
+                    <label for="busca">Buscar pelo nome</label>
+                    <input type="search" id="busca" name="busca" placeholder="Ex: cauda">
+                </div>
+                <div class="campo">
+                    <label for="filtro-categoria">Categoria</label>
+                    <select id="filtro-categoria" name="filtro-categoria">
+                        <option value="todas">Todas</option>
+                        <option value="digital">Digital</option>
+                        <option value="acustico">Acústico</option>
+                        <option value="hibrido">Híbrido</option>
+                    </select>
+                </div>
+                <button type="button" id="botao-favoritos" class="botao" aria-pressed="false">Só favoritos</button>
+            </div>
+            <p id="resumo-catalogo" class="resumo" aria-live="polite"></p>
             <ul id="lista-pianos" class="grade-cards"></ul>
+
+            <form id="form-novo-piano" class="formulario">
+                <fieldset>
+                    <legend>Adicionar piano à comparação</legend>
+                    <div class="campo">
+                        <label for="novo-nome">Nome do piano</label>
+                        <input type="text" id="novo-nome" name="novo-nome" required>
+                    </div>
+                    <div class="campo">
+                        <label for="novo-preco">Preço (R$)</label>
+                        <input type="number" id="novo-preco" name="novo-preco" required min="500" max="5000000">
+                    </div>
+                    <div class="campo">
+                        <label for="novo-categoria">Categoria</label>
+                        <select id="novo-categoria" name="novo-categoria" required>
+                            <option value="">Selecione...</option>
+                            <option value="digital">Digital</option>
+                            <option value="acustico">Acústico</option>
+                            <option value="hibrido">Híbrido</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="botao">Adicionar</button>
+                </fieldset>
+            </form>
         </section>
 
         <section id="sugerir">
